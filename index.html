@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0f2e 25%, #2d0a3d 50%, #1a0f2e 75%, #0f0f1e 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 122, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating hearts background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.5;
+            animation: float 8s ease-in-out infinite;
+            color: #e94560;
+            filter: drop-shadow(0 0 10px rgba(233, 69, 96, 0.6));
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; font-size: 18px; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; font-size: 30px; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 0.5s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 1.5s; font-size: 28px; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 2.5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 0.8s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 1.8s; font-size: 22px; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 3s; }
+        .heart:nth-child(10) { left: 15%; animation-delay: 2.2s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Peony Container */
+        .peonies-container {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .peony {
+            width: 120px;
+            height: 140px;
+            position: relative;
+            animation: bloomIn 2s ease-out, sway 4s ease-in-out infinite;
+        }
+
+        .peony:nth-child(2) {
+            animation-delay: 0.5s, 0.5s;
+            transform: scaleX(-1);
+        }
+
+        .peony-bloom {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493, #c71585);
+            filter: drop-shadow(0 4px 8px rgba(201, 53, 133, 0.4));
+        }
+
+        /* Peony petals - outer layer */
+        .peony-bloom.outer-1 {
+            width: 100px;
+            height: 100px;
+            top: 0;
+            left: 10px;
+            background: radial-gradient(circle at 35% 35%, #ff85c0, #ff4da6, #d8207e);
+        }
+
+        .peony-bloom.outer-2 {
+            width: 80px;
+            height: 80px;
+            top: 30px;
+            left: 20px;
+            background: radial-gradient(circle at 35% 35%, #ff8db8, #ff5fb3, #dc2d84);
+        }
+
+        .peony-bloom.inner {
+            width: 60px;
+            height: 60px;
+            top: 45px;
+            left: 30px;
+            background: radial-gradient(circle at 40% 40%, #ffb3d9, #ff85c0, #e84a96);
+        }
+
+        .peony-center {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 55px;
+            left: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 45% 45%, #ffc0cb, #ffb3d9, #ff85c0);
+            box-shadow: inset -2px -2px 5px rgba(255, 69, 109, 0.6);
+        }
+
+        .peony-stem {
+            position: absolute;
+            width: 4px;
+            height: 60px;
+            left: 58px;
+            top: 100px;
+            background: linear-gradient(180deg, #2d5016 0%, #3d6b1f 100%);
+            border-radius: 2px;
+        }
+
+        .peony-leaf {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(135deg, #3d7d3d 0%, #4a9d4a 100%);
+            border-radius: 50% 0;
+            transform: rotate(-45deg);
+            bottom: 15px;
+        }
+
+        .peony-leaf.left {
+            left: 25px;
+        }
+
+        .peony-leaf.right {
+            right: 25px;
+            transform: rotate(225deg);
+        }
+
+        @keyframes bloomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        /* Peony text for Open Me button */
+        .envelope-text-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .memory-lane-left {
+            position: fixed;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            width: 150px;
+        }
+
+        .memory-lane-right {
+            position: fixed;
+            right: 20px;
+            top: 0;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            width: 150px;
+        }
+
+        .filmstrip-container {
+            position: absolute;
+            width: 100%;
+            animation: scrollDown 20s linear infinite;
+        }
+
+        @keyframes scrollDown {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0%); }
+        }
+
+        .film-frame {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background: #1a1a2e;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            padding: 6px;
+            box-shadow: 
+                0 8px 25px rgba(0,0,0,0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        /* Filmstrip sprocket holes */
+        .film-frame::before,
+        .film-frame::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                #333 0px,
+                #333 8px,
+                #000 8px,
+                #000 12px
+            );
+            border-radius: 2px;
+        }
+
+        .film-frame::before {
+            top: -10px;
+        }
+
+        .film-frame::after {
+            bottom: -10px;
+        }
+
+        .film-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            filter: sepia(40%) contrast(1.3) brightness(0.95);
+            transition: filter 0.3s ease;
+        }
+
+        .film-frame:hover img {
+            filter: sepia(20%) contrast(1.4) brightness(1.05);
+        }
+
+        /* Main container */
+        .container {
+            text-align: center;
+            z-index: 2;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            border-radius: 40px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(233, 69, 96, 0.2);
+            max-width: 750px;
+            width: 90%;
+            animation: fadeIn 1.5s ease-out;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main beating heart */
+        .main-heart {
+            font-size: 100px;
+            animation: beat 1s ease-in-out infinite;
+            cursor: pointer;
+            display: inline-block;
+            text-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 20px rgba(233, 69, 96, 0.6));
+        }
+
+        .main-heart:hover {
+            transform: scale(1.25);
+            filter: drop-shadow(0 0 30px rgba(233, 69, 96, 0.9));
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Non-cursive fonts */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #ff8a95 0%, #ff6b7a 50%, #ff4757 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 20px rgba(233, 69, 96, 0.5);
+            letter-spacing: 2px;
+            filter: drop-shadow(0 4px 10px rgba(233, 69, 96, 0.3));
+        }
+
+        .message {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .date {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, rgba(255, 138, 149, 0.3), rgba(255, 107, 122, 0.3), rgba(255, 138, 149, 0.3));
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        /* Envelope Button - Enhanced with flower theme */
+        .envelope-btn {
+            position: relative;
+            margin-top: 40px;
+            width: 240px;
+            height: 140px;
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b7a 50%, #e94560 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 
+                0 15px 40px rgba(233, 69, 96, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 40px rgba(255, 71, 87, 0.4);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .envelope-btn::before {
+            content: '🌹';
+            font-size: 24px;
+            animation: twirl 2s linear infinite;
+        }
+
+        .envelope-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 
+                0 25px 60px rgba(233, 69, 96, 0.7),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(255, 71, 87, 0.6);
+        }
+
+        .envelope-btn:active {
+            transform: translateY(-4px) scale(1.04);
+        }
+
+        @keyframes twirl {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Envelope flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 60px solid #ff6b7a;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .envelope-btn:hover .envelope-flap {
+            border-top-color: #ff8a95;
+            transform: translateY(-8px) skewY(-2deg);
+        }
+
+        /* Envelope body */
+        .envelope-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(135deg, #ff4757 0%, #ff7081 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .envelope-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        /* Letter modal - Paper style */
+        .letter-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 30, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .letter-modal.show {
+            display: flex !important;
+        }
+
+        /* Paper letter */
+        .letter-content {
+            background: #fffef0;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 29px,
+                    #e8e8d0 29px,
+                    #e8e8d0 30px
+                );
+            padding: 60px;
+            border-radius: 15px;
+            width: 85vw;
+            max-width: 850px;
+            height: 80vh;
+            max-height: 700px;
+            overflow-y: auto;
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(233, 69, 96, 0.15);
+            position: relative;
+            animation: letterAppear 0.5s ease;
+            border: 2px solid rgba(232, 134, 122, 0.2);
+        }
+
+        .letter-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.03"/></svg>');
+            pointer-events: none;
+            border-radius: 10px;
+        }
+
+        @keyframes letterAppear {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .letter-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b7a 50%, #c73e54 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 3px solid rgba(233, 69, 96, 0.3);
+            padding-bottom: 25px;
+        }
+
+        .letter-content p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: #2d1f1f;
+            line-height: 2.4;
+            text-align: left;
+            padding: 0 15px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            color: #c8956b;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+            font-weight: bold;
+        }
+
+        .close-btn:hover {
+            color: #e94560;
+            transform: scale(1.3) rotate(90deg);
+        }
+
+        /* Decorative elements */
+        .decorations {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .decoration-heart {
+            font-size: 32px;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(233, 69, 96, 0.4));
+            transition: all 0.3s ease;
+        }
+
+        .decoration-heart:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .decoration-heart:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .decoration-heart:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .decoration-heart:nth-child(5) {
+            animation-delay: 0.2s;
+        }
+
+        .decoration-heart:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 15px rgba(233, 69, 96, 0.8));
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.25); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .main-heart { font-size: 80px; }
+            .message { font-size: 1rem; }
+            .container { padding: 30px 20px; }
+            .memory-lane-left, .memory-lane-right {
+                width: 100px;
+            }
+            .film-frame {
+                height: 100px;
+                margin-bottom: 20px;
+            }
+            .letter-content {
+                padding: 30px 20px;
+            }
+            .letter-content h2 {
+                font-size: 1.4rem;
+            }
+            .letter-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .memory-lane-left { left: 5px; width: 110px; }
+            .memory-lane-right { right: 5px; width: 110px; }
+        }
+
+        /* Hidden audio element */
+        #backgroundMusic { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts-container">
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">❤️</div>
+        <div class="heart">🦈</div>
+        <div class="heart">💖</div>
+        <div class="heart">❤️</div>
+        <div class="heart">🦈</div>
+        <div class="heart">💗</div>
+        <div class="heart">❤️</div>
+        <div class="heart">🦈</div>
+    </div>
+
+    <!-- Memory Lane Filmstrip on Left - Moving Down -->
+    <div class="memory-lane-left">
+        <div class="filmstrip-container">
+            <div class="film-frame"><img src="1.jpg" alt="Memory 1"></div>
+            <div class="film-frame"><img src="2.jpg" alt="Memory 2"></div>
+            <div class="film-frame"><img src="3.jpg" alt="Memory 3"></div>
+            <div class="film-frame"><img src="3.png" alt="Memory 4"></div>
+            <!-- Duplicate for loop -->
+            <div class="film-frame"><img src="1.jpg" alt="Memory 1"></div>
+            <div class="film-frame"><img src="2.jpg" alt="Memory 2"></div>
+            <div class="film-frame"><img src="3.jpg" alt="Memory 3"></div>
+            <div class="film-frame"><img src="3.png" alt="Memory 4"></div>
+        </div>
+    </div>
+
+    <!-- Memory Lane Filmstrip on Right - Moving Down -->
+    <div class="memory-lane-right">
+        <div class="filmstrip-container">
+            <div class="film-frame"><img src="3.png" alt="Memory 4"></div>
+            <div class="film-frame"><img src="3.jpg" alt="Memory 3"></div>
+            <div class="film-frame"><img src="2.jpg" alt="Memory 2"></div>
+            <div class="film-frame"><img src="1.jpg" alt="Memory 1"></div>
+            <!-- Duplicate for loop -->
+            <div class="film-frame"><img src="3.png" alt="Memory 4"></div>
+            <div class="film-frame"><img src="3.jpg" alt="Memory 3"></div>
+            <div class="film-frame"><img src="2.jpg" alt="Memory 2"></div>
+            <div class="film-frame"><img src="1.jpg" alt="Memory 1"></div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="main-heart">❤️</div>
+        <h1>Happy Valentine's Day</h1>
+        <p class="message">
+            I just wanted to give you this little virtual gift to make you smile.💕<br>
+            Thank you for the memories and for being such a wonderful part of my life.
+        </p>
+        <p class="date">February 14th, 2026</p>
+        
+        <!-- Envelope Button -->
+        <button class="envelope-btn" id="envelopeBtn">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">
+                <span class="envelope-text">💌 Open Me</span>
+            </div>
+        </button>
+        
+        <div class="decorations">
+            <span class="decoration-heart">🦈</span>
+            <span class="decoration-heart">❤️</span>
+            <span class="decoration-heart">🦈</span>
+            <span class="decoration-heart">💕</span>
+            <span class="decoration-heart">🦈</span>
+        </div>
+    </div>
+
+    <!-- Letter Modal -->
+    <div class="letter-modal" id="letterModal">
+        <div class="letter-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2>A Little Something for You ❤️🦈</h2>
+            <p>
+                Hi Ella,<br><br>
+                
+                Sana magustuhan mo itong little present ko para sa’yo. Sorry na virtual lang, kasi hindi ko afford na lumapit o magbigay personally.<br><br>
+                
+                Happy Valentine’s Day, Ella! Kahit wala na tayo, gusto ko pa rin magbigay ng something sa’yo. Hindi dahil gusto kong magbalikan, kundi dahil you’re not like anyone else, at may promise ako sa’yo noon na ma ibibigay ako sayo sa Valentine’s.<br><br>
+
+               If you’re wondering… I miss you so much. I’ll forever cherish the memories we had—lahat ng moments, Ella. You’re truly remarkable, at I really, really liked you. Sorry na ganito ang sitwasyon natin ngayon sa Valentine’s.<br><br>
+
+                Sana masaya ka, at nasa better place ka ngayon. Sana enjoy mo buhay mo, kasama ang friends mo, at everything na nagpapasaya sa’yo. I know you’re strong, at hindi ka madaling sumuko.<br><br>
+
+                Thank you for everything. Lagi kong sinasabi sa lahat na sa’yo ako naging pinakamasaya.<br><br>
+
+               Mag-iingat ka palagi, at be safe.<br><br>
+                
+                Godspeed, Ella. Happy Valentine’s Day! ❤️ 🦈<br><br>
+                
+                P.S. Can we be moots ulit sa IG?<br><br>
+                
+                With all my heart,<br>
+                Calvin 💕🦈
+            </p>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Letter button functionality
+        const envelopeBtn = document.getElementById('envelopeBtn');
+        const letterModal = document.getElementById('letterModal');
+        const closeBtn = document.getElementById('closeBtn');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let musicPlayed = false;
+
+        function openLetter() {
+            if (!musicPlayed) {
+                backgroundMusic.volume = 0.5;
+                backgroundMusic.play().catch(error => {
+                    console.log('Audio autoplay was prevented:', error);
+                });
+                musicPlayed = true;
+            }
+            letterModal.classList.add('show');
+        }
+
+        envelopeBtn.addEventListener('click', openLetter);
+
+        closeBtn.addEventListener('click', () => {
+            letterModal.classList.remove('show');
+        });
+
+        letterModal.addEventListener('click', (e) => {
+            if (e.target === letterModal) {
+                letterModal.classList.remove('show');
+            }
+        });
+
+        // Main heart click effect
+        const mainHeart = document.querySelector('.main-heart');
+        
+        mainHeart.addEventListener('click', () => {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💕';
+                    heart.style.position = 'fixed';
+                    heart.style.fontSize = '30px';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '50%';
+                    heart.style.animation = 'float 2s ease-out forwards';
+                    heart.style.zIndex = '1000';
+                    heart.style.pointerEvents = 'none';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 2000);
+                }, i * 100);
+            }
+        });
+
+        // Add mouse trail effect
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.9) {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.width = '4px';
+                sparkle.style.height = '4px';
+                sparkle.style.background = '#e94560';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'twinkle 1.5s ease-in-out forwards';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1500);
+            }
+        });
+
+        // Twinkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes twinkle {
+                0% { opacity: 0; transform: scale(0); }
+                50% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+            @keyframes float {
+                0% { transform: translateY(0) scale(1); opacity: 1; }
+                100% { transform: translateY(-200px) scale(1.2); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
